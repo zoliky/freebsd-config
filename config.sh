@@ -20,3 +20,6 @@ doas mv loader.conf /boot/
 
 echo "Install utilities"
 doas pkg install -y vim neovim htop neofetch rsync kitty tmux dfc zip mpv fzf meson
+
+echo "Install Firefox"
+doas pkg install -y firefox
