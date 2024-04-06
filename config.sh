@@ -14,6 +14,11 @@ doas tee -a /etc/fstab <<EOF
 proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
 EOF
 
+echo "Install LightDM"
+doas pkg install -y lightdm lightdm-gtk-greeter
+doas sysrc dbus_enable="YES"
+doas sysrc lightdm_enable="YES"
+
 echo "Adjustments"
 doas mv /boot/loader.conf /boot/loader.conf.backup
 doas mv loader.conf /boot/
