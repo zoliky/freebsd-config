@@ -28,3 +28,4 @@ doas pkg install -y vim neovim htop neofetch rsync kitty tmux dfc zip mpv fzf me
 
 echo "Install Firefox"
 doas pkg install -y firefox
+doas chown -R zoliky:zoliky ~/.cache
