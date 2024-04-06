@@ -1,4 +1,5 @@
 #!/bin/sh
 
-echo "Install Audacity"
-doas pkg install -y gimp transmission-gtk vlc
+echo "Install packages"
+doas pkg install -y emacs gimp inkscape transmission-gtk vlc filezilla \
+     libreoffice xournalpp vscode thunderbird obs-studio
