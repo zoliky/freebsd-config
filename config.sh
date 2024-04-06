@@ -5,8 +5,8 @@ doas pkg install -y xorg
 doas pw groupmod video -m zoliky
 
 #echo "Install Intel graphics"
-#doas install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
-#doas sysrc -f /etc/rc.conf kld_list+=i915kms
+doas install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
+doas sysrc -f /etc/rc.conf kld_list+=i915kms
 
 echo "Install Xfce"
 doas pkg install -y xfce xfce4-goodies
