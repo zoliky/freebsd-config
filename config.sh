@@ -29,3 +29,8 @@ doas pkg install -y vim neovim htop neofetch rsync kitty tmux dfc zip mpv fzf me
 echo "Install Firefox"
 doas pkg install -y firefox
 doas chown -R zoliky:zoliky ~/.cache
+
+echo "Configure sound"
+doas tee -a /etc/sysctl.conf <<EOF
+hw.snd.default_unit=3
+EOF
