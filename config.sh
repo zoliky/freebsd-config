@@ -9,7 +9,7 @@ doas pkg install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
 doas sysrc -f /etc/rc.conf kld_list+=i915kms
 
 echo "Install Xfce"
-doas pkg install -y xfce xfce4-goodies
+doas pkg install -y xfce xfce4-goodies plank
 doas tee -a /etc/fstab <<EOF
 proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
 EOF
@@ -34,3 +34,6 @@ echo "Configure sound"
 doas tee -a /etc/sysctl.conf <<EOF
 hw.snd.default_unit=3
 EOF
+
+echo "Install fonts"
+doas pkg install -y hack-font
