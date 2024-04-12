@@ -37,3 +37,9 @@ EOF
 
 echo "Install fonts"
 doas pkg install -y hack-font
+
+echo "Configure webcam"
+doas pkg install webcamd
+doas sysrc webcamd_enable="YES"
+doas pw groupmod webcamd -m zoliky
+doas sysrc kld_list += "cuse"
