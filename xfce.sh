@@ -12,3 +12,11 @@ xfconf-query -c xfce4-power-manager \
 xfconf-query -c xfce4-power-manager \
              -p /xfce4-power-manager/dpms-enabled \
              -n -t 'bool' -s 'false'
+
+xfconf-query -c xfce4-desktop \
+             -p /desktop-icons/style \
+             -n -t int -s 0
+
+xfconf-query -c xfwm4 \
+             -p /general/show_dock_shadow \
+             -n -t 'bool' -s 'false'
