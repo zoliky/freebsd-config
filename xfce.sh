@@ -20,3 +20,15 @@ xfconf-query -c xfce4-desktop \
 xfconf-query -c xfwm4 \
              -p /general/show_dock_shadow \
              -n -t 'bool' -s 'false'
+
+xfconf-query -c keyboard-layout \
+             -p /Default/XkbDisable \
+             -n -t 'bool' -s 'false'
+
+xfconf-query -c keyboard-layout \
+             -p /Default/XkbLayout \
+             -n -t string -s 'us,hu,ro'
+
+xfconf-query -c keyboard-layout \
+             -p /Default/XkbVariant \
+             -n -t string -s ',,std'
