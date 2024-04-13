@@ -32,3 +32,7 @@ xfconf-query -c keyboard-layout \
 xfconf-query -c keyboard-layout \
              -p /Default/XkbVariant \
              -n -t string -s ',,std'
+
+xfconf-query -c thunar \
+             -p /shortcuts-icon-size \
+             -n -t string -s 'THUNAR_ICON_SIZE_16'
