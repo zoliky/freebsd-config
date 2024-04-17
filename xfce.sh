@@ -47,3 +47,15 @@ xfconf-query -c ristretto \
              -t double -s 0.000000 \
              -t double -s 0.000000 \
              -t double -s 1.000000
+
+xfconf-query -c ristretto \
+             -p /window/thumbnails/show \
+             -n -t 'bool' -s 'false'
+
+xfconf-query -c ristretto \
+             -p /window/thumbnails/size \
+             -n -t int -s 2
+
+xfconf-query -c ristretto \
+             -p /window/navigationbar/position \
+             -n -t string -s 'bottom'
