@@ -37,6 +37,14 @@ xfconf-query -c thunar \
              -p /shortcuts-icon-size \
              -n -t string -s 'THUNAR_ICON_SIZE_16'
 
+xfconf-query -c thunar \
+             -p /misc-file-size-binary \
+             -n -t 'bool' -s 'false'
+
+xfconf-query -c thunar \
+             -p /misc-directory-specific-settings \
+             -n -t 'bool' -s 'true'
+
 xfconf-query -c ristretto \
              -p /window/bgcolor-override \
              -n -t 'bool' -s 'true'
@@ -50,7 +58,7 @@ xfconf-query -c ristretto \
 
 xfconf-query -c ristretto \
              -p /window/thumbnails/show \
-             -n -t 'bool' -s 'false'
+             -n -t 'bool' -s 'true'
 
 xfconf-query -c ristretto \
              -p /window/thumbnails/size \
@@ -59,3 +67,11 @@ xfconf-query -c ristretto \
 xfconf-query -c ristretto \
              -p /window/navigationbar/position \
              -n -t string -s 'bottom'
+
+xfconf-query -c xfce4-screensaver \
+             -p /saver/enabled \
+             -n -t 'bool' -s 'false'
+
+xfconf-query -c xfwm4 \
+             -p /general/placement_ratio \
+             -n -t int -s 100
