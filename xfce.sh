@@ -36,3 +36,10 @@ xfconf-query -c keyboard-layout \
 xfconf-query -c thunar \
              -p /shortcuts-icon-size \
              -n -t string -s 'THUNAR_ICON_SIZE_16'
+
+xfconf-query -c ristretto \
+             -p /window/bgcolor \
+             -n -t double -s 0.000000 \
+             -t double -s 0.000000 \
+             -t double -s 0.000000 \
+             -t double -s 1.000000
