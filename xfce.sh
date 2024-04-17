@@ -75,3 +75,11 @@ xfconf-query -c xfce4-screensaver \
 xfconf-query -c xfwm4 \
              -p /general/placement_ratio \
              -n -t int -s 100
+
+xfconf-query -c xfwm4 \
+             -p /general/mousewheel_rollup \
+             -n -t 'bool' -s 'false'
+
+xfconf-query -c xfce4-session \
+             -p /general/SaveOnExit \
+             -n -t 'bool' -s 'false'
