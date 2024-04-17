@@ -38,6 +38,10 @@ xfconf-query -c thunar \
              -n -t string -s 'THUNAR_ICON_SIZE_16'
 
 xfconf-query -c ristretto \
+             -p /window/bgcolor-override \
+             -n -t 'bool' -s 'true'
+
+xfconf-query -c ristretto \
              -p /window/bgcolor \
              -n -t double -s 0.000000 \
              -t double -s 0.000000 \
