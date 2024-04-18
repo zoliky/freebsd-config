@@ -80,6 +80,10 @@ xfconf-query -c xfwm4 \
              -p /general/mousewheel_rollup \
              -n -t 'bool' -s 'false'
 
+xfconf-query -c xfwm4 \
+             -p /general/scroll_workspaces \
+             -n -t 'bool' -s 'false'
+
 xfconf-query -c xfce4-session \
              -p /general/SaveOnExit \
              -n -t 'bool' -s 'false'
