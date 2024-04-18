@@ -92,6 +92,10 @@ xfconf-query -c xfwm4 \
              -p /general/zoom_desktop \
              -n -t 'bool' -s 'false'
 
+xfconf-query -c xfwm4 \
+             -p /general/button_layout \
+             -n -t string -s '|HMC'
+
 xfconf-query -c xfce4-session \
              -p /general/SaveOnExit \
              -n -t 'bool' -s 'false'
