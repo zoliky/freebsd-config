@@ -95,3 +95,7 @@ xfconf-query -c xfwm4 \
 xfconf-query -c xfce4-session \
              -p /general/SaveOnExit \
              -n -t 'bool' -s 'false'
+
+xfconf-query -c xsettings \
+             -p /Gtk/CursorThemeName \
+             -n -t string -s 'Adwaita'
