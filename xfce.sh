@@ -17,6 +17,10 @@ xfconf-query -c xfce4-desktop \
              -p /desktop-icons/style \
              -n -t int -s 0
 
+xfconf-query -c xfce4-desktop \
+             -p /desktop-icons/show-thumbnails \
+             -n -t 'bool' -s 'false'
+
 xfconf-query -c xfwm4 \
              -p /general/show_dock_shadow \
              -n -t 'bool' -s 'false'
@@ -82,6 +86,10 @@ xfconf-query -c xfwm4 \
 
 xfconf-query -c xfwm4 \
              -p /general/scroll_workspaces \
+             -n -t 'bool' -s 'false'
+
+xfconf-query -c xfwm4 \
+             -p /general/zoom_desktop \
              -n -t 'bool' -s 'false'
 
 xfconf-query -c xfce4-session \
