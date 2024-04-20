@@ -54,7 +54,7 @@ doas pkg install -y hack-font
 
 echo "Configure webcam"
 doas pkg install -y webcamd
-doas pw groupmod webcamd -m zoliky
+doas pw groupmod webcamd -m $username
 doas sysrc webcamd_enable="YES"
 doas sysrc kld_list+="cuse"
 
