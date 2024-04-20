@@ -1,17 +1,23 @@
 #!/bin/sh
 
-if [ $(id -u) -ne 0 ]; then
-    echo "You need root privileges to run this script."
-    exit 1
-fi
+#if [ $(id -u) -ne 0 ]; then
+#    echo "You need root privileges to run this script."
+#    exit 1
+#fi
 
-echo "Install Xorg"
+username=zoliky
+
+echo "---------- Install Xorg"
 doas pkg install -y xorg
-doas pw groupmod video -m zoliky
+doas pw groupmod video -m $username
 
-echo "Install Intel graphics"
+echo "---------- Install Intel graphics"
 doas pkg install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
 doas sysrc kld_list+=i915kms
+
+echo "---------- Enable dynamic adjustment of CPU frequency"
+doas sysrc powerd_enable="YES"
+doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
 echo "Install Xfce"
 doas pkg install -y xfce xfce4-goodies plank
@@ -20,7 +26,7 @@ proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')
 EOF
 doas sysrc dbus_enable="YES"
 
-#echo "Install LightDM"
+echo "---------- Install LightDM"
 doas pkg install -y lightdm lightdm-gtk-greeter
 doas sysrc lightdm_enable="YES"
 
