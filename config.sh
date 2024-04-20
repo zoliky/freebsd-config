@@ -35,13 +35,19 @@ doas tee -a /etc/sysctl.conf <<EOF
 hw.snd.default_unit=3
 EOF
 
+echo "Enhance desktop responsiveness under high CPU use"
+doas tee -a /etc/sysctl.conf <<EOF
+# Enhance desktop responsiveness under high CPU use
+kern.sched.preempt_thresh=224
+EOF
+
 echo "Install fonts"
 doas pkg install -y hack-font
 
 echo "Configure webcam"
 doas pkg install -y webcamd
-doas sysrc webcamd_enable="YES"
 doas pw groupmod webcamd -m zoliky
+doas sysrc webcamd_enable="YES"
 doas sysrc kld_list+="cuse"
 
 echo "Configure Wacom tablet"
