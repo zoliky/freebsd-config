@@ -19,17 +19,6 @@ echo "---------- Enable dynamic adjustment of CPU frequency"
 doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
-echo "Install Xfce"
-doas pkg install -y xfce xfce4-goodies plank
-doas tee -a /etc/fstab <<EOF
-proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
-EOF
-doas sysrc dbus_enable="YES"
-
-echo "---------- Install LightDM"
-doas pkg install -y lightdm lightdm-gtk-greeter
-doas sysrc lightdm_enable="YES"
-
 echo "Adjustments"
 doas mv /boot/loader.conf /boot/loader.conf.backup
 doas mv loader.conf /boot/
