@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ $(id -u) -ne 0 ]; then
+    echo "You need root privileges to run this script."
+    exit 1
+fi
+
 echo "Install Xorg"
 doas pkg install -y xorg
 doas pw groupmod video -m zoliky
