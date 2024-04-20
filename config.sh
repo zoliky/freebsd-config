@@ -45,5 +45,4 @@ doas pw groupmod webcamd -m zoliky
 doas sysrc kld_list+="cuse"
 
 echo "Configure Wacom tablet"
-doas pkg install -y libwacom
-doas pkg install -y xf86-input-wacom
+doas pkg install -y libwacom xf86-input-wacom
