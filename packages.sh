@@ -2,4 +2,5 @@
 
 echo "Install packages"
 doas pkg install -y audacity blender chromium darktable gimp inkscape \
-     libreoffice lollypop obs-studio thunderbird
+     libreoffice lollypop obs-studio thunderbird transmission-gtk vlc \
+     xournalpp
