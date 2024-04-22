@@ -19,7 +19,7 @@ doas mv /boot/loader.conf /boot/loader.conf.backup
 doas mv loader.conf /boot/
 
 echo "Install utilities"
-doas pkg install -y vim neovim htop neofetch rsync kitty tmux dfc zip mpv fzf meson
+doas pkg install -y vim neovim htop neofetch rsync kitty tmux dfc zip mpv fzf meson wget
 
 echo "Install Firefox"
 doas pkg install -y firefox
