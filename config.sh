@@ -1,10 +1,5 @@
 #!/bin/sh
 
-#if [ $(id -u) -ne 0 ]; then
-#    echo "You need root privileges to run this script."
-#    exit 1
-#fi
-
 username=zoliky
 
 echo "---------- Install Xorg"
