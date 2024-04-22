@@ -60,3 +60,6 @@ doas sysrc kld_list+="cuse"
 
 echo "Configure Wacom tablet"
 doas pkg install -y libwacom xf86-input-wacom
+
+echo "Clear local package cache"
+doas pkg clean -y
