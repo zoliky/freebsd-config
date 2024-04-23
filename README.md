@@ -1,6 +1,6 @@
 # Zoltán Király's FreeBSD Configuration
 
-*Work in progress*
+**Work in progress**
 
 Maintainer: Zoltán Király https://github.com/zoliky
 
