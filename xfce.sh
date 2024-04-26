@@ -49,6 +49,10 @@ xfconf-query -c keyboard-layout \
              -n -t string -s ',,std'
 
 xfconf-query -c thunar \
+             -p /last-location-bar \
+             -n -t string -s 'ThunarLocationButtons'
+
+xfconf-query -c thunar \
              -p /shortcuts-icon-size \
              -n -t string -s 'THUNAR_ICON_SIZE_16'
 
