@@ -114,3 +114,6 @@ xfconf-query -c xfce4-session \
 xfconf-query -c xsettings \
              -p /Gtk/CursorThemeName \
              -n -t string -s 'Adwaita'
+
+gsettings set org.xfce.mousepad.preferences.view \
+          highlight-current-line true
