@@ -119,6 +119,10 @@ xfconf-query -c xsettings \
              -p /Gtk/CursorThemeName \
              -n -t string -s 'Adwaita'
 
+xfconf-query -c xfce4-terminal \
+             -p /scrolling-bar \
+             -n -t string -s 'TERMINAL_SCROLLBAR_NONE'
+
 gsettings set org.xfce.mousepad.preferences.view \
           highlight-current-line true
 
