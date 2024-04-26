@@ -122,4 +122,4 @@ gsettings set org.xfce.mousepad.preferences.view \
           use-default-monospace-font false
 
 gsettings set org.xfce.mousepad.preferences.view \
-          font-name 'Monospace 14'
+          font-name 'Hack 14'
