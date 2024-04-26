@@ -117,3 +117,9 @@ xfconf-query -c xsettings \
 
 gsettings set org.xfce.mousepad.preferences.view \
           highlight-current-line true
+
+gsettings set org.xfce.mousepad.preferences.view \
+          use-default-monospace-font false
+
+gsettings set org.xfce.mousepad.preferences.view \
+          font-name 'Monospace 14'
