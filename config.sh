@@ -31,6 +31,7 @@ doas chown -R $username:$username ~/.cache
 echo "Configure sound"
 doas tee -a /etc/sysctl.conf <<EOF
 hw.snd.default_unit=3
+hw.snd.default_auto=0
 EOF
 
 echo "Enhance desktop responsiveness under high CPU use"
