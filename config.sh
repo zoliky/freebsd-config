@@ -2,15 +2,18 @@
 
 username=zoliky
 
-echo "---------- Install Xorg"
+echo "Update packages"
+doas pkg update && pkg upgrade -y
+
+echo "Install Xorg"
 doas pkg install -y xorg
 doas pw groupmod video -m $username
 
-echo "---------- Install Intel graphics"
+echo "Install Intel graphics"
 doas pkg install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
 doas sysrc kld_list+=i915kms
 
-echo "---------- Enable dynamic adjustment of CPU frequency"
+echo "Enable dynamic adjustment of CPU frequency"
 doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
