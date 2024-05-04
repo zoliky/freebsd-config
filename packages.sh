@@ -1,6 +1,6 @@
 #!/bin/sh
 
 echo "Install packages"
-doas pkg install -y audacity blender chromium darktable gimp inkscape \
-     libreoffice lollypop obs-studio thunderbird transmission-gtk vlc \
-     xournalpp
+doas pkg install -y audacity blender chromium darktable emacs gimp \
+     inkscape libreoffice lollypop obs-studio thunderbird transmission-gtk \
+     vlc xournalpp
