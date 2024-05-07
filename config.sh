@@ -37,6 +37,17 @@ EOF
 echo "Install fonts"
 doas pkg install -y hack-font
 
+echo "Install Xfce"
+doas pkg install -y xfce xfce4-pulseaudio-plugin xfce4-goodies plank xarchiver redshift
+doas tee -a /etc/fstab <<EOF
+proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
+EOF
+doas sysrc dbus_enable="YES"
+
+echo "Install and enable LightDM"
+doas pkg install -y lightdm lightdm-gtk-greeter
+doas sysrc lightdm_enable="YES"
+
 echo "Configure webcam"
 doas pkg install -y webcamd
 doas pw groupmod webcamd -m $username
