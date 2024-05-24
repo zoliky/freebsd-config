@@ -34,6 +34,12 @@ hw.snd.default_unit=3
 hw.snd.default_auto=0
 EOF
 
+echo "Enhance desktop responsiveness under high CPU use"
+doas tee -a /etc/sysctl.conf <<EOF
+# Enhance desktop responsiveness under high CPU use
+kern.sched.preempt_thresh=224
+EOF
+
 echo "Install fonts"
 doas pkg install -y hack-font
 
