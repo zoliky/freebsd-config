@@ -37,7 +37,13 @@ EOF
 echo "Enhance desktop responsiveness under high CPU use"
 doas tee -a /etc/sysctl.conf <<EOF
 # Enhance desktop responsiveness under high CPU use
-kern.sched.preempt_thresh=224
+kern.sched.preempt_thresh=200
+EOF
+
+echo "Give only 2GB of RAM to ZFS"
+doas tee -a /etc/sysctl.conf <<EOF
+# Give only 2GB of RAM to ZFS
+vfs.zfs.arc.max="2147483648"
 EOF
 
 echo "Install fonts"
