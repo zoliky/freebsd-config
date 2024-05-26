@@ -52,7 +52,7 @@ echo "Install fonts"
 doas pkg install -y hack-font
 
 echo "Install Xfce"
-doas pkg install -y xfce xfce4-goodies plank xarchiver networkmgr redshift
+doas pkg install -y xfce xfce4-goodies plank xarchiver networkmgr redshift galculator
 doas tee -a /etc/fstab <<EOF
 proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
 EOF
