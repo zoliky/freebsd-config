@@ -22,7 +22,7 @@ doas mv /boot/loader.conf /boot/loader.conf.backup
 doas mv loader.conf /boot/
 
 echo "Install utilities"
-doas pkg install -y vim neovim htop neofetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson wget
+doas pkg install -y vim neovim htop neofetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson mixertui wget
 
 echo "Install Firefox"
 doas pkg install -y firefox
@@ -30,8 +30,10 @@ doas chown -R $username:$username ~/.cache
 
 echo "Configure sound"
 doas tee -a /etc/sysctl.conf <<EOF
+# USB audio
 hw.snd.default_unit=3
 hw.snd.default_auto=0
+hw.snd.vpc_autoreset=0
 EOF
 
 echo "Enhance desktop responsiveness under high CPU use"
