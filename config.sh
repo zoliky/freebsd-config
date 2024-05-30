@@ -7,7 +7,6 @@ doas pkg update && pkg upgrade -y
 
 echo "Install Xorg"
 doas pkg install -y xorg
-doas pw groupmod video -m $username
 
 echo "Install Intel graphics"
 doas pkg install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
@@ -64,12 +63,18 @@ doas sysrc lightdm_enable="YES"
 
 echo "Configure webcam"
 doas pkg install -y webcamd
-doas pw groupmod webcamd -m $username
 doas sysrc webcamd_enable="YES"
 doas sysrc kld_list+="cuse"
 
 echo "Configure Wacom tablet"
 doas pkg install -y libwacom xf86-input-wacom
+
+echo "Add user to core groups"
+doas pw groupmod operator -m $username
+doas pw groupmod realtime -m $username
+doas pw groupmod video -m $username
+doas pw groupmod webcamd -m $username
+doas pw groupmod network -m $username
 
 echo "Clear local package cache"
 doas pkg clean -y
