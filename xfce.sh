@@ -70,11 +70,19 @@ xfconf-query -c ristretto \
 
 xfconf-query -c ristretto \
              -p /window/thumbnails/size \
-             -n -t int -s 2
+             -n -t int -s 4
 
 xfconf-query -c ristretto \
              -p /window/navigationbar/position \
-             -n -t string -s 'bottom'
+             -n -t string -s 'right'
+
+xfconf-query -c ristretto \
+             -p /window/toolbar/show \
+             -n -t 'bool' -s 'false'
+
+xfconf-query -c ristretto \
+             -p /window/statusbar/show \
+             -n -t 'bool' -s 'false'
 
 xfconf-query -c xfce4-screensaver \
              -p /saver/enabled \
