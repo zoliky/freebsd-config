@@ -21,7 +21,7 @@ doas mv /boot/loader.conf /boot/loader.conf.backup
 doas mv loader.conf /boot/
 
 echo "Install utilities"
-doas pkg install -y vim neovim htop neofetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson mixertui wget
+doas pkg install -y vim htop fastfetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson mixertui wget
 
 echo "Install Firefox"
 doas pkg install -y firefox
@@ -39,12 +39,6 @@ echo "Enhance desktop responsiveness under high CPU use"
 doas tee -a /etc/sysctl.conf <<EOF
 # Enhance desktop responsiveness under high CPU use
 kern.sched.preempt_thresh=200
-EOF
-
-echo "Give only 2GB of RAM to ZFS"
-doas tee -a /etc/sysctl.conf <<EOF
-# Give only 2GB of RAM to ZFS
-vfs.zfs.arc.max="2147483648"
 EOF
 
 echo "Install fonts"
