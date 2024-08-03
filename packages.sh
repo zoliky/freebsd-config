@@ -3,4 +3,5 @@
 echo "Install packages"
 doas pkg install -y audacity blender calibre chromium darktable emacs filezilla \
      flacon foliate gimp inkscape libreoffice lollypop obs-studio sox thunderbird \
-     transmission-gtk vlc xournalpp en-hunspell ro-hunspell hu-hunspell nerd-fonts
+     tigervnc-viewer transmission-gtk vlc xournalpp en-hunspell ro-hunspell hu-hunspell \
+     nerd-fonts
