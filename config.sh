@@ -2,8 +2,8 @@
 
 username=zoliky
 
-echo "Update packages"
-doas pkg update && pkg upgrade -y
+echo "Ensure packages are up-to-date"
+doas pkg update && doas pkg upgrade -y
 
 echo "Install Xorg"
 doas pkg install -y xorg
