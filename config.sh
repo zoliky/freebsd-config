@@ -2,17 +2,17 @@
 
 username=zoliky
 
-echo "Ensure packages are up-to-date"
+echo "Update local package catalogs and upgrade installed packages"
 doas pkg update && doas pkg upgrade -y
 
-echo "Install Xorg"
+echo "Install the X.Org package"
 doas pkg install -y xorg
 
-echo "Install Intel graphics"
+echo "Install Intel graphics-related packages and load the i915kms module at boot"
 doas pkg install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
 doas sysrc kld_list+=i915kms
 
-echo "Enable dynamic adjustment of CPU frequency"
+echo "Enable dynamic CPU frequency adjustment"
 doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
