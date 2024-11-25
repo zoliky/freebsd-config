@@ -17,8 +17,8 @@ doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
 echo "Adjustments"
-doas mv /boot/loader.conf /boot/loader.conf.backup
-doas mv loader.conf /boot/
+doas cp /boot/loader.conf /boot/loader.conf.backup
+doas cp loader.conf /boot/
 
 echo "Install utilities"
 doas pkg install -y vim htop fastfetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson mixertui wget
