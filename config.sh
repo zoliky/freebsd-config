@@ -20,6 +20,9 @@ echo "Adjustments"
 doas cp /boot/loader.conf /boot/loader.conf.backup
 doas cp loader.conf /boot/
 
+doas cp devfs.rules /etc/
+doas sysrc devfs_system_ruleset="system"
+
 echo "Install utilities"
 doas pkg install -y vim htop fastfetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson mixertui wget
 
