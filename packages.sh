@@ -5,6 +5,7 @@ set -- \
     audacity \
     calibre \
     chromium \
+    coreutils \
     darktable \
     emacs \
     en-hunspell \
@@ -14,6 +15,8 @@ set -- \
     foliate \
     gimp \
     gnome-mahjongg \
+    go \
+    gohugo \
     hu-hunspell \
     inkscape \
     isync \
@@ -22,9 +25,14 @@ set -- \
     lollypop \
     mu4e \
     nerd-fonts \
+    node \
     obs-studio \
+    python3 \
     ro-hunspell \
+    ruby \
     sox \
+    tex-xetex \
+    texstudio \
     thunderbird \
     tigervnc-viewer \
     transmission-gtk \
