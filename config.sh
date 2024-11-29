@@ -1,7 +1,5 @@
 #!/bin/sh
 
-username=zoliky
-
 # Update repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
@@ -28,7 +26,7 @@ doas pkg install -y vim htop fastfetch rsync kitty tmux dfc zip mpv yt-dlp fzf m
 
 # Install Firefox
 doas pkg install -y firefox
-doas chown -R $username:$username ~/.cache
+doas chown -R $USER:$USER ~/.cache
 
 # Configure USB audio (Behringer UCA202)
 doas tee -a /etc/sysctl.conf <<EOF
@@ -67,11 +65,11 @@ doas sysrc kld_list+="cuse"
 doas pkg install -y libwacom xf86-input-wacom
 
 # Add user to core groups
-doas pw groupmod operator -m $username
-doas pw groupmod realtime -m $username
-doas pw groupmod video -m $username
-doas pw groupmod webcamd -m $username
-doas pw groupmod network -m $username
+doas pw groupmod operator -m $USER
+doas pw groupmod realtime -m $USER
+doas pw groupmod video -m $USER
+doas pw groupmod webcamd -m $USER
+doas pw groupmod network -m $USER
 
 # Clear local package cache
 doas pkg clean -y
