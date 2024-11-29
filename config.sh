@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Update repository catalog and upgrade packages
+# Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
 # Install X.Org
