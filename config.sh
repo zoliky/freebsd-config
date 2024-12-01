@@ -64,12 +64,13 @@ doas sysrc kld_list+="cuse"
 # Install packages for Wacom tablet support
 doas pkg install -y libwacom xf86-input-wacom
 
-# Add user to core groups
-doas pw groupmod operator -m $USER
-doas pw groupmod realtime -m $USER
-doas pw groupmod video -m $USER
-doas pw groupmod webcamd -m $USER
-doas pw groupmod network -m $USER
+# Add user to necessary groups
+groups="operator realtime video webcamd network"
+
+for group in $groups; do
+  echo "Adding $USER to $group group"
+  doas pw groupmod "$group" -m "$USER"
+done
 
 # Clear local package cache
 doas pkg clean -y
