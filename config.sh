@@ -67,7 +67,16 @@ EOF
 install_packages hack-font
 
 # Install Xfce and other useful packages
-install_packages xfce xfce4-goodies xfce4-pulseaudio-plugin plank xarchiver networkmgr redshift galculator xdg-user-dirs
+install_packages \
+  xfce \
+  xfce4-goodies \
+  xfce4-pulseaudio-plugin \
+  plank \
+  xarchiver \
+  networkmgr \
+  redshift \
+  galculator \
+  xdg-user-dirs
 
 # Add proc filesystem entry to /etc/fstab
 if ! grep -q '^proc' /etc/fstab; then
