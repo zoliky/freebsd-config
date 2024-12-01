@@ -6,6 +6,16 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
+# Function to install packages
+install_packages() {
+  for package in "$@"; do
+    if ! pkg info -e "$package"; then
+      echo "Installing $package"
+      doas pkg install -y "$package"
+    fi
+  done
+}
+
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
