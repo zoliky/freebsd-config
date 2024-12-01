@@ -45,11 +45,17 @@ EOF
 # Install fonts
 doas pkg install -y hack-font
 
-# Install Xfce with additional packages and enable D-BUS
+# Install Xfce and other useful packages
 doas pkg install -y xfce xfce4-goodies xfce4-pulseaudio-plugin plank xarchiver networkmgr redshift galculator xdg-user-dirs
-doas tee -a /etc/fstab <<EOF
+
+# Add proc filesystem entry to /etc/fstab
+if ! grep -q '^proc' /etc/fstab; then
+  doas tee -a /etc/fstab <<EOF
 proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
 EOF
+fi
+
+# Enable D-BUS
 doas sysrc dbus_enable="YES"
 
 # Install and enable LightDM display manager
