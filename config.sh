@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if [ "$(id -u)" -eq 0 ]; then
+  echo "This script must not be run as root." >&2
+  echo "Exiting."
+  exit 1
+fi
+
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
