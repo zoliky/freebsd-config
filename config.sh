@@ -13,6 +13,7 @@ doas pkg update && doas pkg upgrade -y
 doas pkg install -y xorg
 
 # Install Intel graphics and enable i915kms at boot
+# See https://docs.freebsd.org/en/books/handbook/x11/#x-configuration-intel
 doas pkg install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
 doas sysrc kld_list+=i915kms
 
