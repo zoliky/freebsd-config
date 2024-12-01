@@ -32,7 +32,11 @@ doas pkg install -y vim htop fastfetch rsync kitty tmux dfc zip mpv yt-dlp fzf m
 
 # Install Firefox
 doas pkg install -y firefox
-doas chown -R $USER:$USER ~/.cache
+
+# Fix permissions for Firefox's cache directory
+if [ -d "$HOME/.cache" ]; then
+  doas chown -R $USER:$USER "$HOME/.cache"
+fi
 
 # Configure USB audio (Behringer UCA202)
 doas tee -a /etc/sysctl.conf <<EOF
