@@ -17,7 +17,7 @@ doas pkg install -y xorg
 doas pkg install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
 doas sysrc kld_list+=i915kms
 
-# Enable powerd and set flags: hiadaptive on AC, adaptive on battery
+# Enable powerd for dynamic CPU frequency scaling
 doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
