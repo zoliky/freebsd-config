@@ -20,11 +20,11 @@ install_packages() {
 doas pkg update && doas pkg upgrade -y
 
 # Install X.Org
-doas pkg install -y xorg
+install_packages xorg
 
 # Install Intel graphics and enable i915kms at boot
 # See https://docs.freebsd.org/en/books/handbook/x11/#x-configuration-intel
-doas pkg install -y drm-kmod libva-intel-driver mesa-libs mesa-dri
+install_packages drm-kmod libva-intel-driver mesa-libs mesa-dri
 doas sysrc kld_list+=i915kms
 
 # Enable powerd for dynamic CPU frequency scaling
@@ -39,10 +39,10 @@ doas cp devfs.rules /etc/
 doas sysrc devfs_system_ruleset="system"
 
 # Install utilities
-doas pkg install -y vim htop fastfetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson mixertui wget
+install_packages vim htop fastfetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson mixertui wget
 
 # Install Firefox
-doas pkg install -y firefox
+install_packages firefox
 
 # Fix permissions for Firefox's cache directory
 if [ -d "$HOME/.cache" ]; then
@@ -64,10 +64,10 @@ kern.sched.preempt_thresh=200
 EOF
 
 # Install fonts
-doas pkg install -y hack-font
+install_packages hack-font
 
 # Install Xfce and other useful packages
-doas pkg install -y xfce xfce4-goodies xfce4-pulseaudio-plugin plank xarchiver networkmgr redshift galculator xdg-user-dirs
+install_packages xfce xfce4-goodies xfce4-pulseaudio-plugin plank xarchiver networkmgr redshift galculator xdg-user-dirs
 
 # Add proc filesystem entry to /etc/fstab
 if ! grep -q '^proc' /etc/fstab; then
@@ -80,16 +80,16 @@ fi
 doas sysrc dbus_enable="YES"
 
 # Install and enable LightDM display manager
-doas pkg install -y lightdm lightdm-gtk-greeter
+install_packages lightdm lightdm-gtk-greeter
 doas sysrc lightdm_enable="YES"
 
 # Enable webcamd for USB webcam, Wacom tablet, and other devices
-doas pkg install -y webcamd
+install_packages webcamd
 doas sysrc webcamd_enable="YES"
 doas sysrc kld_list+="cuse"
 
 # Install packages for Wacom tablet support
-doas pkg install -y libwacom xf86-input-wacom
+install_packages libwacom xf86-input-wacom
 
 # Add user to necessary groups
 groups="operator realtime video webcamd network"
