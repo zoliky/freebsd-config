@@ -19,6 +19,9 @@ install_packages() {
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
+# Install git
+install_packages git
+
 # Install X.Org
 install_packages xorg
 
