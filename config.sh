@@ -71,20 +71,6 @@ if [ -d "$HOME/.cache" ]; then
   doas chown -R $USER:$USER "$HOME/.cache"
 fi
 
-# Configure USB audio (Behringer UCA202)
-doas tee -a /etc/sysctl.conf <<EOF
-# USB audio
-hw.snd.default_unit=3
-hw.snd.default_auto=0
-hw.snd.vpc_autoreset=0
-EOF
-
-# Set a threshold value more suitable for desktop use
-doas tee -a /etc/sysctl.conf <<EOF
-# Set a threshold value more suitable for desktop use
-kern.sched.preempt_thresh=200
-EOF
-
 # Install fonts
 install_packages hack-font
 
