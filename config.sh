@@ -22,6 +22,11 @@ doas pkg update && doas pkg upgrade -y
 # Install git
 install_packages git
 
+# Install the Ports Collection if not present
+if [ ! -d "/usr/ports" ] || [ -z "$(ls -A /usr/ports)" ]; then
+  doas git clone --depth 1 https://git.FreeBSD.org/ports.git -b 2024Q4 /usr/ports
+fi
+
 # Install X.Org
 install_packages xorg
 
