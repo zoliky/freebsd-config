@@ -104,8 +104,10 @@ install_packages libwacom xf86-input-wacom
 groups="operator realtime video webcamd network"
 
 for group in $groups; do
-  echo "Adding $USER to $group group"
-  doas pw groupmod "$group" -m "$USER"
+  if ! id -nG "$USER" | grep -qw "$group"; then
+    echo "Adding $USER to $group group"
+    doas pw groupmod "$group" -m "$USER"
+  fi
 done
 
 # Clear local package cache
