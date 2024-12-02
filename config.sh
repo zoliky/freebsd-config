@@ -39,7 +39,21 @@ doas cp devfs.rules /etc/
 doas sysrc devfs_system_ruleset="system"
 
 # Install utilities
-install_packages vim htop fastfetch rsync kitty tmux dfc zip mpv yt-dlp fzf meson mixertui wget
+install_packages \
+  mpv \
+  vim \
+  fzf \
+  dfc \
+  zip \
+  htop \
+  wget \
+  kitty \
+  rsync \
+  meson \
+  yt-dlp \
+  mixertui \
+  fastfetch \
+  portmaster
 
 # Install Firefox
 install_packages firefox
