@@ -21,7 +21,7 @@ install_packages() {
   done
 }
 
-# Function to backup and update a target file if it differs from the source
+# Function to update a target file if it differs from the source
 update_target() {
   source_file=$1
   target_file=$2
