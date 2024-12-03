@@ -18,8 +18,8 @@ if ! pkg info -e doas; then
   exit 1
 fi
 
-# Function that takes one package or a list of packages as input
-# and installs them, but only if they are not already installed
+# Function that takes one or more packages as input and
+# installs them if not already installed
 install_packages() {
   for package in "$@"; do
     if ! pkg info -e "$package"; then
