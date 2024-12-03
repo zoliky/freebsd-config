@@ -11,7 +11,7 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-# Abort execution if the 'doas' utility is not found in the PATH
+# Abort execution if the 'doas' utility is not found
 if ! which doas > /dev/null 2>&1; then
   echo "This script requires the 'doas' utility."
   echo "Exiting."
