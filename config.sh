@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Ensure the script is not run as root
 if [ "$(id -u)" -eq 0 ]; then
   echo "This script must not be run as root." >&2
   echo "Exiting."
@@ -42,8 +43,7 @@ fi
 # Install X.Org
 install_packages xorg
 
-# Install Intel graphics and enable i915kms at boot
-# See https://docs.freebsd.org/en/books/handbook/x11/#x-configuration-intel
+# Install Intel Graphics and enable i915kms at boot
 install_packages drm-kmod libva-intel-driver mesa-libs mesa-dri
 doas sysrc kld_list+=i915kms
 
