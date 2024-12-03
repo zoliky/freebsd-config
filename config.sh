@@ -25,7 +25,7 @@ install_packages() {
       echo "Installing $package"
       doas pkg install -y "$package"
     else
-      echo "Skipping $package: already installed"
+      echo "[Skipping] $package is already installed"
     fi
   done
 }
