@@ -28,7 +28,7 @@ install_packages() {
   done
 }
 
-copy_config() {
+update_file() {
   source_file=$1
   target_file=$2
   backup_file="${target_file}.backup"
@@ -62,9 +62,9 @@ doas sysrc kld_list+=i915kms
 doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
-# Copy custom configuration files
-copy_config "loader.conf" "/boot/loader.conf"
-copy_config "sysctl.conf" "/etc/sysctl.conf"
+# Update target configuration files
+update_file "loader.conf" "/boot/loader.conf"
+update_file "sysctl.conf" "/etc/sysctl.conf"
 
 if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
   doas cp devfs.rules /etc/
