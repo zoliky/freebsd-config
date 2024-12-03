@@ -22,10 +22,10 @@ fi
 install_packages() {
   for package in "$@"; do
     if ! pkg info -e "$package"; then
-      echo "Installing $package"
+      echo "Installing $package."
       doas pkg install -y "$package"
     else
-      echo "[Skipping] $package is already installed"
+      echo "[Skipping] Package $package is already installed."
     fi
   done
 }
