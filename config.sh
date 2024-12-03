@@ -11,15 +11,14 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-# Abort execution if the 'doas' utility is not installed
+# Abort execution if the 'doas' utility is not found
 if ! pkg info -e doas; then
-  echo "This script requires the 'doas' utility to be installed."
+  echo "This script requires the 'doas' utility."
   echo "Exiting."
   exit 1
 fi
 
-# Function that takes one or more packages as input and
-# installs them if not already installed
+# Function for installing packages
 install_packages() {
   for package in "$@"; do
     if ! pkg info -e "$package"; then
