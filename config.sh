@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Prevent the script from running as root
+# Abort execution if the script is run as root
 if [ "$(id -u)" -eq 0 ]; then
   echo "This script must not be run as root." >&2
   echo "Exiting."
