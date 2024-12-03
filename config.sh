@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# FILE:        config.sh
+# DESCRIPTION: Script for setting up a FreeBSD system
+# AUTHOR:      Zoltan Kiraly
+
 # Abort execution if the script is run as root
 if [ "$(id -u)" -eq 0 ]; then
   echo "This script must not be run as root." >&2
