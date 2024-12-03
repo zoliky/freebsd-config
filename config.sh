@@ -79,6 +79,7 @@ install_packages \
   xfce \
   xfce4-goodies \
   xfce4-pulseaudio-plugin \
+  gnome-keyring \
   plank \
   xarchiver \
   networkmgr \
