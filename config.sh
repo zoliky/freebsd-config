@@ -16,6 +16,18 @@ install_packages() {
   done
 }
 
+copy_config() {
+  source_file=$1
+  target_file=$2
+  backup_file="${target_file}.backup"
+
+  # Compare files and update if they differ
+  if ! cmp -s "$source_file" "$target_file"; then
+    doas cp "$target_file" "$backup_file"
+    doas cp "$source_file" "$target_file"
+  fi
+}
+
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
@@ -40,11 +52,13 @@ doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
 # Copy custom configuration files
-doas cp /boot/loader.conf /boot/loader.conf.backup
-doas cp loader.conf /boot/
+copy_config "loader.conf" "/boot/loader.conf"
+copy_config "sysctl.conf" "/etc/sysctl.conf"
 
-doas cp devfs.rules /etc/
-doas sysrc devfs_system_ruleset="system"
+if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
+  doas cp devfs.rules /etc/
+  doas sysrc devfs_system_ruleset="system"
+fi
 
 # Install utilities
 install_packages \
