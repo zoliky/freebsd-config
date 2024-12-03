@@ -19,6 +19,9 @@ if ! which doas > /dev/null 2>&1; then
 fi
 
 # Function to install packages
+# NOTE: For FreeBSD's pkg command, using a loop is better than
+# just "pkg install package1 package2 etc." to ensure the installation
+# continues even if a package is not available in the repository.
 install_packages() {
   for package in "$@"; do
     if ! pkg info -e "$package"; then
