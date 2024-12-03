@@ -27,7 +27,8 @@ update_target() {
   target_file=$2
   backup_file="${target_file}.backup"
 
-  # Compare files and update if they differ
+  # Compare files and update if they differ,
+  # but first make a backup of the target file
   if ! cmp -s "$source_file" "$target_file"; then
     doas cp "$target_file" "$backup_file"
     doas cp "$source_file" "$target_file"
