@@ -11,6 +11,13 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
+# Abort execution if the 'doas' utility is not found in the PATH
+if ! which doas > /dev/null 2>&1; then
+  echo "This script requires the 'doas' utility."
+  echo "Exiting."
+  exit 1
+fi
+
 # Function to install packages
 install_packages() {
   for package in "$@"; do
@@ -27,8 +34,7 @@ update_target() {
   target_file=$2
   backup_file="${target_file}.backup"
 
-  # Compare files and update if they differ,
-  # but first make a backup of the target file
+  # Compare files and update if they differ
   if ! cmp -s "$source_file" "$target_file"; then
     doas cp "$target_file" "$backup_file"
     doas cp "$source_file" "$target_file"
@@ -57,7 +63,7 @@ doas sysrc kld_list+=i915kms
 doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
-# Update target configuration files
+# Update configuration files
 update_target "loader.conf" "/boot/loader.conf"
 update_target "sysctl.conf" "/etc/sysctl.conf"
 
