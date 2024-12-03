@@ -28,7 +28,8 @@ install_packages() {
   done
 }
 
-update_file() {
+# Function to update the target file if it differs from the source
+update_target() {
   source_file=$1
   target_file=$2
   backup_file="${target_file}.backup"
@@ -63,8 +64,8 @@ doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
 # Update target configuration files
-update_file "loader.conf" "/boot/loader.conf"
-update_file "sysctl.conf" "/etc/sysctl.conf"
+update_target "loader.conf" "/boot/loader.conf"
+update_target "sysctl.conf" "/etc/sysctl.conf"
 
 if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
   doas cp devfs.rules /etc/
