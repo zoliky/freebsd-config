@@ -30,21 +30,16 @@ install_packages() {
   done
 }
 
-# Function to update a target file if it differs from the source
-update_target_file() {
+# Function to copy a custom configuration file
+copy_config_file() {
   source_file=$1
   target_file=$2
   backup_file="${target_file}.backup"
 
-  # Backup and update the target file if it differs from the source file
+  # Backup the target file and update it if it differs from the source
   if ! cmp -s "$source_file" "$target_file"; then
     doas cp "$target_file" "$backup_file"
     doas cp "$source_file" "$target_file"
-  fi
-
-  # Special handling for devfs.rules
-  if [ "$target_file" = "/etc/devfs.rules" ]; then
-    doas sysrc devfs_system_ruleset="system"
   fi
 }
 
@@ -71,9 +66,13 @@ doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
 # Use configuration files
-update_target_file "loader.conf" "/boot/loader.conf"
-update_target_file "sysctl.conf" "/etc/sysctl.conf"
-update_target_file "devfs.rules" "/etc/devfs.rules"
+copy_config_file "loader.conf" "/boot/loader.conf"
+copy_config_file "sysctl.conf" "/etc/sysctl.conf"
+
+if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
+  doas cp devfs.rules /etc/devfs.rules
+  doas sysrc devfs_system_ruleset="system"
+fi
 
 # Install utilities and fonts
 install_packages \
