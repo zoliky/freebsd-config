@@ -49,6 +49,25 @@ update_target_file() {
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
+# Install utilities and fonts
+install_packages \
+  mpv \
+  vim \
+  git \
+  fzf \
+  dfc \
+  zip \
+  htop \
+  wget \
+  kitty \
+  rsync \
+  meson \
+  yt-dlp \
+  mixertui \
+  hack-font \
+  fastfetch \
+  portmaster
+
 # Install git
 install_packages git
 
@@ -76,24 +95,6 @@ if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
   doas cp devfs.rules /etc/
   doas sysrc devfs_system_ruleset="system"
 fi
-
-# Install utilities and fonts
-install_packages \
-  mpv \
-  vim \
-  fzf \
-  dfc \
-  zip \
-  htop \
-  wget \
-  kitty \
-  rsync \
-  meson \
-  yt-dlp \
-  mixertui \
-  hack-font \
-  fastfetch \
-  portmaster
 
 # Install Firefox
 install_packages firefox
