@@ -21,17 +21,11 @@ fi
 # Function to install packages
 install_packages() {
   for package in "$@"; do
-    # Check if the package exists in the FreeBSD repository
-    if pkg rquery "%n" "$package" >/dev/null 2>&1; then
-      # Install package if not already installed
-      if ! pkg info -e "$package"; then
-        echo "Installing $package."
-        doas pkg install -y "$package"
-      else
-        echo "[Skipping] Package $package is already installed."
-      fi
+    if ! pkg info -e "$package"; then
+      echo "Installing $package."
+      doas pkg install -y "$package"
     else
-      echo "[Skipping] Package $package doesn't exist."
+      echo "[Skipping] Package $package is already installed."
     fi
   done
 }
