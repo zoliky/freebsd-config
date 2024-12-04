@@ -18,6 +18,10 @@ if ! which doas > /dev/null 2>&1; then
   exit 1
 fi
 
+# ----------------------------------------------------------------------------
+# Custom functions
+# ----------------------------------------------------------------------------
+
 # Function to install packages
 install_packages() {
   # NOTE: A loop is preferred over "pkg install package1 package2 ..."
@@ -46,32 +50,22 @@ update_target_file() {
   fi
 }
 
+# ----------------------------------------------------------------------------
+# Packages and Ports
+# ----------------------------------------------------------------------------
+
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
-# Install utilities and fonts
-install_packages \
-  mpv \
-  vim \
-  git \
-  fzf \
-  dfc \
-  zip \
-  htop \
-  wget \
-  kitty \
-  rsync \
-  meson \
-  yt-dlp \
-  mixertui \
-  hack-font \
-  fastfetch \
-  portmaster
+# Install git
+install_packages git
 
 # Install the Ports Collection if not present
 if [ ! -d "/usr/ports" ] || [ -z "$(ls -A /usr/ports)" ]; then
   doas git clone --depth 1 https://git.FreeBSD.org/ports.git -b 2024Q4 /usr/ports
 fi
+
+
 
 # Install X.Org
 install_packages xorg
@@ -92,6 +86,24 @@ if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
   doas cp devfs.rules /etc/
   doas sysrc devfs_system_ruleset="system"
 fi
+
+# Install utilities and fonts
+install_packages \
+  mpv \
+  vim \
+  fzf \
+  dfc \
+  zip \
+  htop \
+  wget \
+  kitty \
+  rsync \
+  meson \
+  yt-dlp \
+  mixertui \
+  hack-font \
+  fastfetch \
+  portmaster
 
 # Install Firefox
 install_packages firefox
