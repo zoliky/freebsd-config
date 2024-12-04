@@ -78,7 +78,7 @@ if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
   doas sysrc devfs_system_ruleset="system"
 fi
 
-# Install utilities
+# Install system tools, utilities, and fonts
 install_packages \
   mpv \
   vim \
@@ -92,6 +92,7 @@ install_packages \
   meson \
   yt-dlp \
   mixertui \
+  hack-font \
   fastfetch \
   portmaster
 
@@ -102,9 +103,6 @@ install_packages firefox
 if [ -d "$HOME/.cache" ]; then
   doas chown -R $USER:$USER "$HOME/.cache"
 fi
-
-# Install fonts
-install_packages hack-font
 
 # Install Xfce and other useful packages
 install_packages \
