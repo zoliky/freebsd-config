@@ -33,7 +33,7 @@ install_packages() {
   done
 }
 
-# Function to update a target file with the source if they differ
+# Function to update a target file if it differs from the source
 update_target_file() {
   source_file=$1
   target_file=$2
