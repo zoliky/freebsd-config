@@ -18,10 +18,6 @@ if ! which doas > /dev/null 2>&1; then
   exit 1
 fi
 
-# ----------------------------------------------------------------------------
-# Custom functions
-# ----------------------------------------------------------------------------
-
 # Function to install packages
 install_packages() {
   # NOTE: A loop is preferred over "pkg install package1 package2 ..."
@@ -50,10 +46,6 @@ update_target_file() {
   fi
 }
 
-# ----------------------------------------------------------------------------
-# Packages and Ports
-# ----------------------------------------------------------------------------
-
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
@@ -64,8 +56,6 @@ install_packages git
 if [ ! -d "/usr/ports" ] || [ -z "$(ls -A /usr/ports)" ]; then
   doas git clone --depth 1 https://git.FreeBSD.org/ports.git -b 2024Q4 /usr/ports
 fi
-
-
 
 # Install X.Org
 install_packages xorg
@@ -78,9 +68,9 @@ doas sysrc kld_list+=i915kms
 doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
-# Update configuration files
-update_target "loader.conf" "/boot/loader.conf"
-update_target "sysctl.conf" "/etc/sysctl.conf"
+# Use configuration files
+update_target_file "loader.conf" "/boot/loader.conf"
+update_target_file "sysctl.conf" "/etc/sysctl.conf"
 
 if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
   doas cp devfs.rules /etc/
