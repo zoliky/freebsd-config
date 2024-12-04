@@ -89,16 +89,8 @@ fi
 
 # Install Xfce and other useful packages
 install_packages \
-  xfce \
-  xfce4-goodies \
-  xfce4-pulseaudio-plugin \
-  gnome-keyring \
-  plank \
-  xarchiver \
-  networkmgr \
-  redshift \
-  galculator \
-  xdg-user-dirs
+  xfce xfce4-goodies xfce4-pulseaudio-plugin gnome-keyring \
+  plank xarchiver networkmgr redshift galculator xdg-user-dirs
 
 # Add proc filesystem entry to /etc/fstab
 grep -q '^proc' /etc/fstab || doas tee -a /etc/fstab <<EOF
