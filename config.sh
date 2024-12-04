@@ -20,8 +20,6 @@ fi
 
 # Function to install packages
 install_packages() {
-  # NOTE: A loop is preferred over "pkg install package1 package2 ..."
-  # to prevent the installation from aborting if one package is missing
   for package in "$@"; do
     if ! pkg info -e "$package"; then
       echo "Installing $package."
@@ -116,6 +114,10 @@ install_packages \
   xdg-user-dirs
 
 # Add proc filesystem entry to /etc/fstab
+grep -q '^proc' /etc/fstab || doas tee -a /etc/fstab <<EOF
+proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
+EOF
+
 if ! grep -q '^proc' /etc/fstab; then
   doas tee -a /etc/fstab <<EOF
 proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
