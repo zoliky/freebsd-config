@@ -125,7 +125,7 @@ doas sysrc dbus_enable="YES"
 install_packages lightdm lightdm-gtk-greeter
 doas sysrc lightdm_enable="YES"
 
-# Enable webcamd for USB webcam, Wacom tablet, and other devices
+# Install and enable webcamd for USB webcam, Wacom tablet, and other devices
 install_packages webcamd
 doas sysrc webcamd_enable="YES"
 doas sysrc kld_list+="cuse"
