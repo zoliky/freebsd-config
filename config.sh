@@ -78,7 +78,7 @@ if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
   doas sysrc devfs_system_ruleset="system"
 fi
 
-# Install system tools, utilities, and fonts
+# Install utilities and fonts
 install_packages \
   mpv \
   vim \
