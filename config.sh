@@ -80,24 +80,6 @@ install_packages \
   mpv vim fzf dfc zip htop wget kitty rsync meson yt-dlp \
   mixertui hack-font fastfetch portmaster
 
-# Install utilities and fonts
-install_packages \
-  mpv \
-  vim \
-  fzf \
-  dfc \
-  zip \
-  htop \
-  wget \
-  kitty \
-  rsync \
-  meson \
-  yt-dlp \
-  mixertui \
-  hack-font \
-  fastfetch \
-  portmaster
-
 # Install Firefox
 install_packages firefox
 
