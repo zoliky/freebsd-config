@@ -73,11 +73,7 @@ doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 # Use configuration files
 update_target_file "loader.conf" "/boot/loader.conf"
 update_target_file "sysctl.conf" "/etc/sysctl.conf"
-
-if ! cmp -s "devfs.rules" "/etc/devfs.rules"; then
-  doas cp devfs.rules /etc/
-  doas sysrc devfs_system_ruleset="system"
-fi
+update_target_file "devfs.rules" "/etc/devfs.rules"
 
 # Install utilities and fonts
 install_packages \
