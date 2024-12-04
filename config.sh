@@ -118,12 +118,6 @@ grep -q '^proc' /etc/fstab || doas tee -a /etc/fstab <<EOF
 proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
 EOF
 
-if ! grep -q '^proc' /etc/fstab; then
-  doas tee -a /etc/fstab <<EOF
-proc $(printf '\t\t\t')/proc$(printf '\t')procfs$(printf '\t')rw$(printf '\t\t')0$(printf '\t')0
-EOF
-fi
-
 # Enable D-BUS
 doas sysrc dbus_enable="YES"
 
