@@ -30,7 +30,7 @@ install_packages() {
   done
 }
 
-# Function to copy a custom configuration file
+# Function to update target file with source if different
 update_file() {
   source_file=$1
   target_file=$2
