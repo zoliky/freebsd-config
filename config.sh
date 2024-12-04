@@ -41,6 +41,11 @@ update_target_file() {
     doas cp "$target_file" "$backup_file"
     doas cp "$source_file" "$target_file"
   fi
+
+  # Special handling for devfs.rules
+  if [ "$target_file" = "/etc/devfs.rules" ]; then
+    doas sysrc devfs_system_ruleset="system"
+  fi
 }
 
 # Update FreeBSD repository catalog and upgrade packages
