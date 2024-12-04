@@ -126,12 +126,9 @@ install_packages lightdm lightdm-gtk-greeter
 doas sysrc lightdm_enable="YES"
 
 # Install and enable webcamd for USB webcam, Wacom tablet, and other devices
-install_packages webcamd
+install_packages webcamd libwacom xf86-input-wacom
 doas sysrc webcamd_enable="YES"
 doas sysrc kld_list+="cuse"
-
-# Install packages for Wacom tablet support
-install_packages libwacom xf86-input-wacom
 
 # Add user to necessary groups
 groups="operator realtime video webcamd network"
