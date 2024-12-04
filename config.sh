@@ -21,8 +21,7 @@ fi
 # Function to install packages
 install_packages() {
   # NOTE: A loop is preferred over "pkg install package1 package2 ..."
-  # to prevent the installation from aborting if a package is missing
-  # in the FreeBSD repository.
+  # to prevent the installation from aborting if one package is missing
   for package in "$@"; do
     if ! pkg info -e "$package"; then
       echo "Installing $package."
