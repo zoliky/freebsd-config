@@ -41,7 +41,7 @@ update_file() {
     # Only create a backup if it doesn't already exist
     if [ ! -f "$backup_file" ]; then
       doas cp "$target_file" "$backup_file"
-    else
+    fi
 
     # Replace the target file with the source file
     doas cp "$source_file" "$target_file"
@@ -70,7 +70,7 @@ doas sysrc kld_list+=i915kms
 doas sysrc powerd_enable="YES"
 doas sysrc powerd_flags="-a hiadaptive -b adaptive"
 
-# Update configuration files (source -> target)
+# Update target files with custom configurations (source -> target)
 update_file "loader.conf" "/boot/loader.conf"
 update_file "sysctl.conf" "/etc/sysctl.conf"
 
@@ -109,7 +109,7 @@ doas sysrc dbus_enable="YES"
 install_packages lightdm lightdm-gtk-greeter
 doas sysrc lightdm_enable="YES"
 
-# Install and enable webcamd for USB webcam, Wacom tablet, and other devices
+# Install and enable support for USB webcam, Wacom tablet, and other devices
 install_packages webcamd libwacom xf86-input-wacom
 doas sysrc webcamd_enable="YES"
 doas sysrc kld_list+="cuse"
