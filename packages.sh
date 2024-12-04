@@ -43,3 +43,6 @@ echo "Install packages"
 for package in "$@"; do
   doas pkg install -y "$package"
 done
+
+# Clear local package cache
+doas pkg clean -y

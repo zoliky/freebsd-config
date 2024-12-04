@@ -49,7 +49,7 @@ update_file() {
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
-# Install prerequisite packages
+# Install git
 install_packages git
 
 # Install the Ports Collection if not present
