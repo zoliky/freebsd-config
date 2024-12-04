@@ -18,6 +18,13 @@ if ! which doas > /dev/null 2>&1; then
   exit 1
 fi
 
+# Abort execution if 'git' is not found
+if ! which git > /dev/null 2>&1; then
+  echo "This script requires 'git'."
+  echo "Exiting."
+  exit 1
+fi
+
 # Function to install packages
 install_packages() {
   for package in "$@"; do
