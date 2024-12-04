@@ -18,13 +18,6 @@ if ! which doas > /dev/null 2>&1; then
   exit 1
 fi
 
-# Abort execution if 'git' is not found
-if ! which git > /dev/null 2>&1; then
-  echo "This script requires 'git'."
-  echo "Exiting."
-  exit 1
-fi
-
 # Function to install packages
 install_packages() {
   for package in "$@"; do
@@ -52,6 +45,9 @@ copy_config_file() {
 
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
+
+# Install prerequisite packages
+install_packages git
 
 # Install the Ports Collection if not present
 if [ ! -d "/usr/ports" ] || [ -z "$(ls -A /usr/ports)" ]; then
