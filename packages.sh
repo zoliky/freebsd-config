@@ -31,6 +31,7 @@ set -- \
     ro-hunspell \
     ruby \
     sox \
+    tex-xetex \
     thunderbird \
     tigervnc-viewer \
     transmission-gtk \
