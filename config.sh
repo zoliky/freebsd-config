@@ -49,11 +49,11 @@ update_file() {
 # Update FreeBSD repository catalog and upgrade packages
 doas pkg update && doas pkg upgrade -y
 
-# Install git
-install_packages git
-
 # Install the Ports Collection if not present
 if [ ! -d "/usr/ports" ] || [ -z "$(ls -A /usr/ports)" ]; then
+  if ! which git > /dev/null 2>&1; then
+    doas pkg install -y git
+  fi
   doas git clone --depth 1 https://git.FreeBSD.org/ports.git -b 2024Q4 /usr/ports
 fi
 
