@@ -28,15 +28,15 @@ install_packages() {
   done
 }
 
-# Function to update target file with source if different
+# Function to update target file with source if they differ
 update_file() {
   source_file=$1
   target_file=$2
   backup_file="${target_file}.backup"
 
-  # Check if the target file differs from the source file
+  # Check if the target file is different from the source file
   if ! cmp -s "$source_file" "$target_file"; then
-    # Only create a backup if it doesn't already exist
+    # Create a backup of the target file if it doesn't exist
     if [ ! -f "$backup_file" ]; then
       doas cp "$target_file" "$backup_file"
     fi
