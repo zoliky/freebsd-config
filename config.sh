@@ -107,6 +107,14 @@ doas sysrc dbus_enable="YES"
 install_packages lightdm lightdm-gtk-greeter
 doas sysrc lightdm_enable="YES"
 
+# Install Zsh and Oh My Zsh
+install_packages zsh ohmyzsh
+
+# Change the default shell to Zsh
+if which zsh > /dev/null 2>&1; then
+  doas chsh -s $(which zsh) $USER
+fi
+
 # Install and enable support for webcam and Wacom tablet
 install_packages webcamd libwacom xf86-input-wacom
 doas sysrc webcamd_enable="YES"
