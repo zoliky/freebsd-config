@@ -31,7 +31,9 @@ set -- \
     ro-hunspell \
     ruby \
     sox \
+    telegram-desktop \
     tex-xetex \
+    texstudio \
     thunderbird \
     tigervnc-viewer \
     transmission-gtk \
