@@ -121,6 +121,9 @@ xfconf-query -c xfce4-terminal \
              -n -t string -s 'TERMINAL_SCROLLBAR_NONE'
 
 gsettings set org.xfce.mousepad.preferences.view \
+          color-scheme 'solarized-light'
+
+gsettings set org.xfce.mousepad.preferences.view \
           highlight-current-line true
 
 gsettings set org.xfce.mousepad.preferences.view \
