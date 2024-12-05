@@ -120,6 +120,9 @@ install_packages webcamd libwacom xf86-input-wacom
 doas sysrc webcamd_enable="YES"
 doas sysrc kld_list+="cuse"
 
+# Enable FuseFS to access cloud storage services with rclone
+doas sysrc kld_list+="fusefs"
+
 # Add user to necessary groups
 groups="operator realtime video webcamd network"
 
