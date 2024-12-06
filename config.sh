@@ -90,7 +90,7 @@ if [ -d "$HOME/.cache" ]; then
   doas chown -R $USER:$USER "$HOME/.cache"
 fi
 
-# Install Xfce and other useful packages
+# Install Xfce and complementary packages
 install_packages \
   xfce xfce4-goodies xfce4-pulseaudio-plugin gnome-keyring \
   plank xarchiver networkmgr redshift galculator xdg-user-dirs
