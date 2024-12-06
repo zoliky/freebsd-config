@@ -97,6 +97,10 @@ xfconf-query -c xfwm4 \
              -n -t 'bool' -s 'false'
 
 xfconf-query -c xfwm4 \
+             -p /general/workspace_count \
+             -n -t int -s 1
+
+xfconf-query -c xfwm4 \
              -p /general/scroll_workspaces \
              -n -t 'bool' -s 'false'
 
