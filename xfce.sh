@@ -21,10 +21,6 @@ xfconf-query -c xfce4-desktop \
              -p /desktop-icons/show-thumbnails \
              -n -t 'bool' -s 'false'
 
-xfconf-query -c xfwm4 \
-             -p /general/show_dock_shadow \
-             -n -t 'bool' -s 'false'
-
 xfconf-query -c keyboard-layout \
              -p /Default/XkbDisable \
              -n -t 'bool' -s 'false'
@@ -86,6 +82,10 @@ xfconf-query -c ristretto \
 
 xfconf-query -c xfce4-screensaver \
              -p /saver/enabled \
+             -n -t 'bool' -s 'false'
+
+xfconf-query -c xfwm4 \
+             -p /general/show_dock_shadow \
              -n -t 'bool' -s 'false'
 
 xfconf-query -c xfwm4 \
